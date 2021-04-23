@@ -1,0 +1,27 @@
+<%- include ("partials/header") %>
+
+    </div>
+
+    <div class="Facilitycontainer">
+        <div class="Cardcontainer">
+            <% hosp.forEach(function(image) { %>
+
+                <div class="Fcard">
+                    <div class="Fcontent">
+                        <div class="iconborder">
+                            <img class="iconImage" src="data:image/<%=image.imgH.contentType%>;base64,<%=image.imgH.data.toString('base64')%>" alt="">
+                        </div>
+                        <br>
+                        <h3>
+                            <%= image.hospitalName %>
+                        </h3>
+                    </div>
+                    <p class="description">
+                        <%= image.hospitalAddress %>
+                    </p>
+                </div>
+                <%});%>
+
+        </div>
+    </div>
+    <%- include ("partials/footer") %>
