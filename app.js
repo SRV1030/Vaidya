@@ -37,7 +37,7 @@ mongoose.connect('mongodb+srv://SRV1030:qwerty1234@cluster0.gje6l.mongodb.net/va
     useUnifiedTopology: true
 })
 
-//creating items schema
+//creating doctor schema
 const drProfileSchema = new Schema({
     drName: String,
     drDegree: {
@@ -65,7 +65,7 @@ const drProfileSchema = new Schema({
     desc: String,
 }, { typeKey: '$type' });
 
-//creating thrift store schema
+//creating hospital store schema
 const hospitalSchema = new Schema({
     hospitalName: String,
     hospitalAddress: String,
@@ -80,13 +80,14 @@ const hospitalSchema = new Schema({
     desc: String,
 }, { typeKey: '$type' });
 
-//creating model for thrift store
+//creating model for hospital and doctor
 const Hospital = mongoose.model('Hospital', hospitalSchema);
 const dr = mongoose.model('Doctor', drProfileSchema);
+
 app.route("/")
     .get((req, res) => {
         Hospital.find({}, (err, hosp) => {
-            // console.log(store);
+
             res.render("hospital", {
                 hosp: hosp,
             });
@@ -95,32 +96,7 @@ app.route("/")
 
     })
 
-// app.route("/myStore")
-//     .get((req, res) => {
-//         Item.find({}, (err, items) => {
-//             res.render("myStore", {
-//                 items: items,
-//             });
-//         })
 
-//     });
-
-
-// app.route("/storeRegister")
-//     .get((req, res) => {
-//         res.render("storeRegister");
-//     })
-//     .post((req, res) => {
-//         const store = new ThriftStore({
-//             storeName: req.body.storeName,
-//             storeEmail: req.body.storeEmail,
-//             storePhone: req.body.storePhone,
-//             storeAddress: req.body.storeAddress,
-//             storeInfo: req.body.storeInfo
-//         })
-//         store.save();
-//         res.redirect("/");
-//     });
 app.route("/hospForm")
     .get((req, res) => {
         res.render("hospForm");
