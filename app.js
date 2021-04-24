@@ -5,12 +5,28 @@ const ejs = require('ejs');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require("body-parser");
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
+
+app.use(express.json());
+
+
+// //routes
+// app.use(require('./routes/auth'));
+
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
+
+
 const Schema = mongoose.Schema;
+
 // const expressLayouts = require('express-ejs-layouts');
 
 const multer = require('multer');
+const { log } = require('console');
+
+
 
 //for image storage
 let storage = multer.diskStorage({
@@ -31,70 +47,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const imageMimeTypes = ["image/jpeg", "image/png", "images/gif"];
 
+app.use(session({
+    secret: 'our secrets.',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 /* -------------------- mongodb setup ------------------- */
 mongoose.connect('mongodb+srv://SRV1030:qwerty1234@cluster0.gje6l.mongodb.net/vaidyaDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+mongoose.set("useCreateIndex", true);
 
-//creating doctor schema
-const drProfileSchema = new Schema({
-    drName: String,
-    drDegree: {
-        type: String
-    },
-    fieldexpertise: {
-        type: String
-    },
-    workAddress: {
-        type: String,
-    },
-    email: {
-        type: String,
-    },
-    phone: {
-        type: String,
-    },
-    workExp: {
-        type: String
-    },
-    img: {
-        data: Buffer,
-        type: String,
-    },
-    desc: String,
-}, { typeKey: '$type' });
-
-//creating hospital store schema
-const hospitalSchema = new Schema({
-    hospitalName: String,
-    hospitalAddress: String,
-    bedAvilabile: String,
-    workForce: String,
-    specialization: String,
-    facilities: String,
-    imgH: {
-        data: Buffer,
-        type: String,
-    },
-    desc: String,
-}, { typeKey: '$type' });
+//models
+require('./models/hospital');
+require('./models/dr');
 
 //creating model for hospital and doctor
-const Hospital = mongoose.model('Hospital', hospitalSchema);
-const dr = mongoose.model('Doctor', drProfileSchema);
-
-app.route("/")
-    .get((req, res) => {
-        Hospital.find({}, (err, hosp) => {
-
-            res.render("hospital", {
-                hosp: hosp,
-            });
-
-        })
-
-    })
+const Hospital = mongoose.model('Hospital');
+const dr = mongoose.model('Doctor');
 
 
 app.route("/hospForm")
@@ -118,7 +92,7 @@ app.post("/hospForm", upload.single('itemImage'), (req, res) => {
     });
     // console.log(item);
     item.save();
-    res.redirect("/");
+    res.redirect("/hospital");
 
 
 })
@@ -126,3 +100,122 @@ app.post("/hospForm", upload.single('itemImage'), (req, res) => {
 app.listen(port, () => {
     console.log(`Server started at port ${port}`);
 });
+
+//User Authentication set-up
+
+
+const userSchema = new mongoose.Schema({
+    userSchema: {
+        type: String,
+        require: true,
+    },
+    name: {
+        type: String,
+        require: true,
+    },
+    email: {
+        type: String,
+        require: true,
+    },
+    password: {
+        type: String,
+        require: true,
+    },
+})
+userSchema.plugin(passportLocalMongoose);
+
+const User = mongoose.model("User", userSchema);
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+app.route("/hospital")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            Hospital.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    // console.log(hosp);
+                    res.render("hospital", {
+                        hosp: hosp,
+                    });
+                }
+
+            })
+        } else {
+            res.redirect("/login");
+        }
+
+    })
+
+
+app.get("/", (req, res) => {
+    if (req.isAuthenticated()) {
+        Hospital.find({}, (err, hosp) => {
+            if (err) console.log(err);
+            else {
+                // console.log(hosp);
+                res.render("hospital", {
+                    hosp: hosp,
+                });
+            }
+
+        })
+    } else {
+        res.render("auth");
+    }
+})
+let f1 = true;
+app.get("/login", (req, res) => {
+    f1 = !f1
+    res.render("login", {
+        f: f1,
+    });
+
+})
+app.get("/register", (req, res) => {
+
+    const f = false;
+    res.render("register", {
+        f: f,
+    });
+
+})
+app.post('/register', (req, res) => {
+    User.register({ username: req.body.username, name: req.body.name, email: req.body.email }, req.body.password, function(err, user) {
+        if (err) {
+            console.log(err);
+            const f = true;
+            res.render("register", {
+                f: f,
+            });
+        } else {
+            passport.authenticate("local")(req, res, () => {
+                res.redirect("/hospital")
+            })
+        }
+    })
+});
+app.post('/login', (req, res) => {
+    const user = new User({
+        username: req.body.username,
+        password: req.body.password,
+    });
+    req.login(user, (err) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            passport.authenticate("local", { failureRedirect: '/login' })(req, res, () => {
+                res.redirect("/hospital");
+
+            })
+        }
+    })
+})
+
+app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+})
