@@ -70,6 +70,7 @@ require('./models/dr');
 const Hospital = mongoose.model('Hospital');
 const dr = mongoose.model('Doctor');
 
+
 app.get("/index", (req, res) => {
     if (req.isAuthenticated()) {
         Hospital.find({}, (err, hosp) => {
