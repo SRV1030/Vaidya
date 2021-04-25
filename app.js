@@ -70,10 +70,37 @@ require('./models/dr');
 const Hospital = mongoose.model('Hospital');
 const dr = mongoose.model('Doctor');
 
+app.get("/index", (req, res) => {
+    if (req.isAuthenticated()) {
+        Hospital.find({}, (err, hosp) => {
+            if (err) console.log(err);
+            else {
+                // console.log(hosp);
+                res.render("index");
+            }
+
+        })
+    } else {
+        res.render("auth");
+    }
+
+})
+
 
 app.route("/hospForm")
     .get((req, res) => {
-        res.render("hospForm");
+        if (req.isAuthenticated()) {
+            Hospital.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    res.render("hospForm");
+                }
+
+            })
+        } else {
+            res.render("auth");
+        }
+
     })
 app.post("/hospForm", upload.single('itemImage'), (req, res) => {
 
@@ -144,7 +171,7 @@ app.route("/hospital")
 
             })
         } else {
-            res.redirect("/login");
+            res.redirect("/auth");
         }
 
     })
@@ -156,9 +183,7 @@ app.get("/", (req, res) => {
             if (err) console.log(err);
             else {
                 // console.log(hosp);
-                res.render("hospital", {
-                    hosp: hosp,
-                });
+                res.redirect("/index");
             }
 
         })
@@ -192,7 +217,7 @@ app.post('/register', (req, res) => {
             });
         } else {
             passport.authenticate("local")(req, res, () => {
-                res.redirect("/hospital")
+                res.redirect("/index")
             })
         }
     })
@@ -208,7 +233,7 @@ app.post('/login', (req, res) => {
             console.log(err);
         } else {
             passport.authenticate("local", { failureRedirect: '/login' })(req, res, () => {
-                res.redirect("/hospital");
+                res.redirect("/index");
 
             })
         }
