@@ -1,317 +1,328 @@
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;600;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;;
 }
-
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background: #000000;
-    color: #c41d1d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #05e8ba;
+  background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
 }
 
+.jumbotron{
+  color: white;
+  width: 94%;
+  background-color: #5c9cf0;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px 50px;
+  padding: 10px;
+}
 .Home {
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 20vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;  
+  min-height: 20vh;
 }
-
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3vh 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vh 10px;
 }
 
 header li,
 a {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 600;
-    color: #edf0f1;
-    text-decoration: none;
-    padding: 20px;
+  font-weight: 600;
+  color: #edf0f1;
+  text-decoration: none;
+  padding: 20px;
 }
-
 .navLogo,
 .nav_links {
-    cursor: pointer;
-    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+  cursor: pointer;
+  background-color: #ffffff;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
-
 .navLogo a {
-    font-size: 2em;
-    display: inline-block;
+  font-size: 2em;
+  display: inline-block;
 }
-
 .nav_links li,
 a {
-    display: inline-block;
-    font-size: 1.3em;
-    /* //side bysode */
-    padding: 0 10px;
+  display: inline-block;
+  font-size: 120%;
+  /* //side bysode */
+  padding: 0 10px;
 }
-
-.nav_links li a {
-    transition: all 0.3s ease 0s;
+.nav_links,li a {
+  transition: all 0.3s ease 0s;
 }
-
 .navitem::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    transition: width 0.5s;
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  transition: width 0.5s;
 }
-
 .navitem:hover::after {
-    width: 100%;
-    transition: width 0.5s;
+  width: 100%;
+  transition: width 0.5s;
 }
 
-
-/* .SearchBox{
-    height: 2vh;
-    wifth
- */
-
-.SearchBox {
-    margin: 10%;
-    margin-top: 3.5%;
-    position: absolute;
-    width: 30vw;
-    height: 8vh;
-    border: 4px solid #e2ebf0;
-    padding: 0px 10px;
-    border-radius: 50px;
+.xyz{
+  display: flex;
+}
+.zyx{
+  border-radius: 10px;
+  background-color: 	#0275d8;
+  color: white;
+  transition: 0.6s ease;
+  font-weight: bold;
+}
+.zyx:hover{
+  transform: scale(1.2);
+}
+.navbar{
+  width: 100%;
+  background-color: #0B4F6C;
+  margin: 0 40px;
+  padding: 10px;
+  border-radius: 20px;
+}
+ul{
+  left: 40%;
+}
+/* .card{
+  border-radius: 20px;
+  margin: 20px;
+  background-color: #fffff2;
+  padding: 10px;
+  box-shadow: 10px 10px lightslategray;
+  align-items: center;
+  transition: 0.6s ease;
 }
 
-.SearchBar {
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
+.card-body{
+  text-align: center;
+}
+.card:hover{
+  transform: translateY(-30px);
+}
+.cardButton{
+  transition: 0.3s ease;
+}
+.cardButton:hover{
+  transform: scale(1.2) ;
+} */
+
+.card-title{
+  text-align: center;
+  margin-top: 5px;
+  color: white;
+}
+.card-img-top{
+  width: 250px;
+  height: 250px;
+}
+.navLogo{
+  display: flex;
+  align-items: center;
+}
+.lottie1{
+  position: relative;
+  height: 100px;
+  width: 120px;
+}
+.card {
+  width: 550px;
+  height: 300px;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
 }
 
-.Search {
-    border: none;
-    height: 100%;
-    width: 100%;
-    padding: 0px5px;
-    border-radius: 50px;
-    font-size: medium;
-    font-family: sans-serif;
-    color: #eddfdf;
-    font-weight: 500;
-    background: none;
+.card h3 {
+  text-align: center;
+  color: #fff;
 }
 
-.Search:focus {
-    outline: none;
+.card .additional {
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(#0B4F6C, #0e6185);
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
 }
 
-button {
-    background: none;
-    outline: none;
-    border: none;
+.card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
 }
 
-.material-icons {
-    color: #e2ebf0;
+.card .additional .user-card {
+  width: 250px;
+  height: 100%;
+  position: relative;
+  float: left;
 }
 
-
-/* Facility Cards */
-
-.Facilitycontainer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    min-height: 40vh;
+.card .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
 }
 
-.Cardcontainer {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 40px 60px;
+.card .additional .user-card .level,
+.card .additional .user-card .points {
+  top: 15%;
+  color: #fffff2;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0,0,0,0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
-.Cardcontainer .Fcard {
-    position: relative;
-    width: 300px;
-    height: 350px;
-    background: rgba(255, 255, 255, 0.05);
-    margin: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: hidden;
+.card .additional .user-card .points {
+  top: 85%;
 }
 
-.Cardcontainer .Fcard .Fcontent {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transition: 0.5s;
-    opacity: 1;
-    text-align: center;
+.card .additional .user-card svg {
+  top: 50%;
 }
 
-.Cardcontainer .Fcard:hover .Fcontent {
-    opacity: 0.3;
-    transform: translateY(-35px);
+.card .additional .more-info {
+  width: 300px;
+  float: left;
+  position: absolute;
+  left: 250px;
+  height: 100%;
 }
 
-.Cardcontainer .Fcard .Fcontent .iconborder {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    text-align: center;
-    opacity: 1;
+.card .additional .more-info h1 {
+  color: #fffff2;
+  margin-bottom: 0;
 }
 
-.Cardcontainer .Fcard .Fcontent .iconborder .far,
-.Cardcontainer .Fcard .Fcontent .iconborder .fas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 150px;
-    object-fit: cover;
-    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+.card.green .additional .more-info h1 {
+  color: #224C36;
 }
 
-.Cardcontainer .Fcard .Fcontent h3 {
-    position: relative;
-    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 100;
-    font-size: 18px;
-    text-align: center;
-    margin: 40px 0 6px;
-    line-height: 1.1em;
+.card .additional .coords {
+  margin: 0 1rem;
+  color: #fffff2;
+  font-size: 1rem;
 }
 
-.Cardcontainer .Fcard .description {
-    position: absolute;
-    border: 50px;
-    display: flex;
-    text-align: center;
+.card.green .additional .coords {
+  color: #325C46;
 }
 
-.Cardcontainer .Fcard .description {
-    list-style: none;
-    margin: 0 10px;
-    transform: translateY(180px);
-    transition: 0.01s;
-    opacity: 0;
-    color: rgb(250, 245, 245);
-    /* text-shadow: 2px 2px #cec4c4; */
+.card .additional .coords span + span {
+  float: right;
 }
 
-.Cardcontainer .Fcard:hover .description {
-    opacity: 1;
-    transform: translateY(50px);
-    transition: 0.5s;
+.card .additional .stats {
+  font-size: 2rem;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  top: auto;
+  color: #fffff2;
 }
 
-.container .card p {
-    margin: 0 10px;
-    font-size: 24px;
+.card.green .additional .stats {
+  color: #325C46;
 }
 
-.iconImage {
-    height: inherit;
-    width: inherit;
+.card .additional .stats > div {
+  flex: 1;
+  text-align: center;
 }
 
-
-/* footer */
-
-footer {
-    bottom: 0px;
-    position: relative;
-    width: 100vw;
-    height: 30vh;
-    background: #1f2022;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    cursor: pointer;
+.card .additional .stats i {
+  display: block;
 }
 
-.footerContainer h2 {
-    color: #796c6c;
-    display: inline-block;
+.card .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.footerContainer h2 a .fab {
-    color: #796c6c;
-    font-size: 1em;
-    display: inline-block;
-    transition: 0.3s;
+.card .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
 }
 
-.footerContainer h2 a .fab:hover {
-    color: #e2ebf0;
-    transform: scale(1.2, 1.2);
-    transition: 0.3s;
+.card .additional .stats div.value.infinity {
+  font-size: 2.5rem;
 }
 
-.store {
-    justify-content: center;
-    align-items: left;
-    display: flex;
-    flex-direction: column;
-    border-bottom: #dbdcdd 1px solid;
-    margin-top: 6%;
+.card .general {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
 }
 
-.titlle {
-    margin-left: 5%;
-    margin-top: 5%;
+.card .general .more {
+  padding: 15px;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.9em;
 }
 
-.centered {
-    padding-top: 200px;
-    text-align: center;
+.lorem{
+  font-size: 15px;
+  margin-top: 50px;
 }
 
-.secret-text {
-    text-align: center;
-    font-size: 2rem;
-    color: #fff;
-    background-color: #000;
+.title{
+  background-color: rgb(29, 230, 29);
+  width: 100px;
+  color: white;
+  font-weight: 900;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2px;
+  margin-left: 30px;
+}
+.more-info{
+  padding: 15px;
+}
+.text{
+  padding: 15px 0;
 }
