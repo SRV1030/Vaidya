@@ -1157,6 +1157,9 @@ div .grid-item :hover img {
     width: 540px;
     height: 240px;
     border: none;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
     border-radius: 10px;
     background-color: #fff;
 }
@@ -1290,4 +1293,37 @@ div .grid-item :hover img {
     position: fixed;
     z-index: 10;
     cursor: pointer;
+}
+
+@media  screen and (max-width: 360px) {
+    
+    .doccard{
+        transform: scale(0.5);
+    }
+    .card{
+     transform: scale(0.5);
+     }
+     
+ }
+
+@media  (min-width:370px) and (max-width: 420px) {
+    
+   .doccard{
+       transform: scale(0.7);
+   }
+   .card{
+    transform: scale(0.6);
+    }
+   
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+    .doccard{
+        transform: scale(0.9);
+    }
+    .card{
+        transform: scale(0.9);
+       
+    }
+    
 }
