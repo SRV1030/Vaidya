@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+    <div class="Home">
+        <% hosp.forEach(function(image) { %>
+            <div class="container mt-5 d-flex justify-content-center">
+                <div class="doccard p-3">
+                    <div class="d-flex align-items-center">
+
+                        <div class="docimage"> <img src="data:image/<%=image.img.contentType%>;base64,<%=image.img.data.toString('base64')%>" alt="Card image cap" class="rounded" width="155"> </div>
+                        <div class="ml-3 w-100 contentCard">
+                            <h4 class="mb-0 mt-0">Dr.
+                                <%= image.drName %>
+                            </h4>
+                            <h5>
+                                <%= image.workAddress %>
+                            </h5> <span><%= image.fieldexpertise %></span>
+                            <div class="p-2 mt-2 d-flex justify-content-between rounded text-white stats docContent">
+                                <div class="d-flex flex-column box1"> <span class="articles">email</span> <span class="number1"><%= image.email %></span> </div>
+                                <div class="d-flex flex-column box1"> <span class="articles">phone</span> <span class="number1"><%= image.phone %></span> </div>
+                                <div class="d-flex flex-column box1"> <span class="articles">Experience</span> <span class="number1"><%= image.workExp %></span> </div>
+                            </div>
+                            <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Contact</button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%});%>
+
+
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <%- include('partials/footer') %>

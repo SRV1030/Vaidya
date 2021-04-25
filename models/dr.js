@@ -7,24 +7,12 @@ const Schema = mongoose.Schema;
 //creating doctor schema
 const drProfileSchema = new Schema({
     drName: String,
-    drDegree: {
-        type: String
-    },
-    fieldexpertise: {
-        type: String
-    },
-    workAddress: {
-        type: String,
-    },
-    email: {
-        type: String,
-    },
-    phone: {
-        type: String,
-    },
-    workExp: {
-        type: String
-    },
+    drDegree: String,
+    fieldexpertise: String,
+    workAddress: String,
+    email: String,
+    phone: String,
+    workExp: String,
     img: {
         data: Buffer,
         type: String,

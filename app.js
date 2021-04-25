@@ -125,6 +125,45 @@ app.post("/hospForm", upload.single('itemImage'), (req, res) => {
 
 })
 
+app.route("/drForm")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            Hospital.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    res.render("drForm");
+                }
+
+            })
+        } else {
+            res.render("auth");
+        }
+
+    })
+app.post("/drForm", upload.single('itemImage'), (req, res) => {
+
+    let item = new dr({
+        drName: req.body.drName,
+        drDegree: req.body.drdeg,
+        fieldexpertise: req.body.spec,
+        workAddress: req.body.drAd,
+        email: req.body.email,
+        phone: req.body.phone,
+        workExp: req.body.exp,
+        desc: req.body.desc,
+        img: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            type: 'image/jpg',
+        },
+
+    });
+    // console.log(item);
+    item.save();
+    res.redirect("/hospital");
+
+
+})
+
 app.listen(port, () => {
     console.log(`Server started at port ${port}`);
 });
@@ -177,7 +216,24 @@ app.route("/hospital")
 
     })
 
+app.route("/dr")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            dr.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    // console.log(hosp);
+                    res.render("dr", {
+                        hosp: hosp,
+                    });
+                }
 
+            })
+        } else {
+            res.redirect("/");
+        }
+
+    })
 app.get("/", (req, res) => {
     if (req.isAuthenticated()) {
         Hospital.find({}, (err, hosp) => {
