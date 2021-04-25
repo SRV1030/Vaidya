@@ -417,6 +417,7 @@ div .grid-item :hover img {
 .aboutus {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
 
 .aboutus-header {
@@ -693,9 +694,9 @@ div .grid-item :hover img {
     .info ul {
         position: absolute;
         display: flex;
-        font-size: 0.75rem;
+        font-size: 1rem;
         width: 100%;
-        bottom: 2%;
+        bottom: 1%;
         align-items: center;
         justify-content: center;
         left: 1%;
@@ -704,8 +705,11 @@ div .grid-item :hover img {
         margin: 1%;
     }
     .amlot {
-        height: 20vh;
-        width: 20vh;
+        height: 15vh;
+        width: 15vh;
+    }
+    .ambContainer {
+        width: 90%
     }
 }
 
@@ -716,12 +720,15 @@ div .grid-item :hover img {
 }
 
 @media (min-width: 420px) and (max-width: 1024px) {
+    .ambContainer {
+        width: 90%
+    }
     .info ul {
         position: absolute;
         display: flex;
-        font-size: 0.75rem;
+        font-size: 1rem;
         width: 100%;
-        bottom: 2%;
+        bottom: 1%;
         align-items: center;
         justify-content: center;
         left: 1%;
@@ -730,8 +737,8 @@ div .grid-item :hover img {
         margin: 1%;
     }
     .amlot {
-        height: 20vh;
-        width: 20vh;
+        height: 15vh;
+        width: 15vh;
     }
     .aboutus {
         display: flex;
@@ -1213,12 +1220,14 @@ div .grid-item :hover img {
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18);
     margin: 3%;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
 }
 
 .info h3 {
     position: absolute;
     top: 8%;
-    font-size: 2rem;
+    font-size: clamp(1rem, 10vw, 1.5rem);
     color: #fff;
 }
 
@@ -1237,7 +1246,48 @@ div .grid-item :hover img {
     /* left: 5%; */
 }
 
+.info ul li {
+    font-size: 1rem;
+}
+
 .amlot {
     height: 30vh;
     width: 30vh;
+}
+
+.aboutus:before {
+    content: "";
+    position: absolute;
+    width: 200vw;
+    height: 200vw;
+    /* background-color: #05e8ba; */
+    background-image: linear-gradient(315deg, #05c6e8 0%, #087ee1 74%);
+    left: 50%;
+    transform: translate(-100%, -100%);
+    border-radius: 40%;
+    z-index: -1;
+    animation: fill 20s ease-in-out infinite;
+}
+
+@keyframes fill {
+    0% {
+        top: 250px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        top: -50px;
+        transform: translateX(-50%) rotate(360deg);
+    }
+    100% {
+        top: 250px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+.go-top {
+    right: 1%;
+    top: 90%;
+    position: fixed;
+    z-index: 10;
+    cursor: pointer;
 }

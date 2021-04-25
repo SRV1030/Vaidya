@@ -159,7 +159,7 @@ app.post("/drForm", upload.single('itemImage'), (req, res) => {
     });
     // console.log(item);
     item.save();
-    res.redirect("/hospital");
+    res.redirect("/dr");
 
 
 })
