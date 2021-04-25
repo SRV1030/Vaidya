@@ -171,7 +171,7 @@ app.route("/hospital")
 
             })
         } else {
-            res.redirect("/auth");
+            res.redirect("/");
         }
 
     })
@@ -190,6 +190,9 @@ app.get("/", (req, res) => {
     } else {
         res.render("auth");
     }
+})
+app.get("/ambulance", (req, res) => {
+    res.render("ambulance")
 })
 let f1 = true;
 app.get("/login", (req, res) => {
