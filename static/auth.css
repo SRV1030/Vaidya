@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800');
 
 * {
 	box-sizing: border-box;
@@ -22,10 +22,32 @@ body {
   width:50vh;
   /* /margin-left:10vw; */
 }
+@media(max-width:1024px){
+	.lottie-1{
+		height:20vh;
+	}
+	.lottie-2{
+		position:relative;
+		height:10vh;
+		width:auto;
+	}
+	.forgot-password{
+		font-size:10px;
+		margin-top:0;
+	}
+	p{
+		font-size:8px;
+	}
+	h2{
+		margin-top: 0;
+	}
+}
+
+
 .lottie-2{
   /* position:relative; */
   height:30vh;
-  width:auto;
+  width:30vw;
   margin-top:0;
   /* /margin-left:10vw; */
 }
@@ -37,9 +59,10 @@ body {
   font-size:30px;
 }
 
+
 .header {
 	text-align: center;
-  font-weight:200;
+  font-weight:500;
   font-size:50px;
   margin-bottom: 2vh;
   padding-bottom:0;
@@ -54,11 +77,12 @@ p {
 	margin-top:0px;
   
 }
-
-
-span {
-	font-size: 12px;
+@media(max-width:420px){
+	p{
+		font-size:10px;
+	}
 }
+
 
 a {
 	color: #333;
@@ -80,6 +104,13 @@ button {
 	transition: transform 0.3s ease-in;
   
 }
+@media(max-width:420px){
+	button{
+		padding:6px 20px;
+		width:30vw;
+	}
+	
+}
 
 button:active {
 	transform: scale(0.95);
@@ -95,7 +126,7 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #fff;
-  color:#fff;
+    color:#fff;
 }
 
 form {
@@ -112,22 +143,39 @@ form {
 input {
 	background-color: #eee;
 	border: none;
-  border-radius:10px;
+  	border-radius:10px;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
+}
+@media(max-width:420px){
+	input{
+		border-radius:10px;
+		width:40vw;
+		padding: 6px 9px;
+	}
 }
 
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
 	max-width: 90%;
 	min-height: 440px;
+	
+}
+h2{
+	font-weight:400;
+}
+@media(max-width:1025px){
+	h2{
+		margin-bottom:0vh;
+		margin-top:2px;
+	}
 }
 
 .form-container {
