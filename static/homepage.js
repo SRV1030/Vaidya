@@ -17,7 +17,22 @@ function myFunction() {
     } else {
       x.className = "topnav";
     }
-  }
+}
+
+function tabChange(){
+  document.getElementsByClassName("active").className-=" active";
+  document.getElementsByClassName("nav-item").className+=" active";
+}
+
+// var tabPanels = document.querySelectorAll(".nav-item");
+// console.log(tabPanels);
+// function showPanel(panelIndex) {
+//   tabPanels.forEach(function (node) {
+//     node.removeClass("active");
+//   });
+//   tabPanels[panelIndex].addClass("active");
+// }
+// showPanel(0);
 
 //   $(document).ready(function(){
 //     $('li').click(function() {
@@ -31,6 +46,6 @@ function myFunction() {
   //   // e.preventDefault();
   // });
 
-  $(function() {
-    $('topnav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
-  });
+  // $(function() {
+  //   $('topnav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+  // });
