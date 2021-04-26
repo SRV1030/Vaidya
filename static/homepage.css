@@ -1202,8 +1202,9 @@ div .grid-item :hover img {
     border: none;
     position: relative;
     z-index: 0;
-    overflow-wrap: hidden;
+    overflow: hidden;
     border-radius: 10px;
+    margin-bottom: 1%;
     background-color: #fff;
 }
 
