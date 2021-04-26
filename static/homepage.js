@@ -18,3 +18,19 @@ function myFunction() {
       x.className = "topnav";
     }
   }
+
+//   $(document).ready(function(){
+//     $('li').click(function() {
+//     $("li.active").removeClass("active");
+//     $(this).addClass('active');
+// });
+
+  // $(".nav-item").on("click", function(e) {
+  //   $(".nav-item").removeClass("active");
+  //   $(this).addClass("active");
+  //   // e.preventDefault();
+  // });
+
+  $(function() {
+    $('topnav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+  });

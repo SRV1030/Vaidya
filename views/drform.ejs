@@ -1,16 +1,27 @@
-<%- include ("partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor- Entry Form</title>
+    <link rel="stylesheet" href="../static/drform.css">
+</head>
+<body>
+    <%- include ("partials/header") %>
 
     </div>
 
     <section id="storeOwner">
-        <div class="container row">
-            <h1 class="heading col-lg-3">Doctor Details</h1>
-            <div class="container col-lg-9">
+            <h1 class="heading ">Doctor Details</h1>
+            <br><br>
+            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_iXKIMU.json"  background="transparent"  speed="1"   class="lottie-1" loop  autoplay></lottie-player>
+            <div class="container ">
                 <form action="/drForm" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="row">
                             <div class="mb-3 col-lg-6">
-                                <label for="drpName" class="form-label">Doctor Name</label>
+                                <label for="drName" class="form-label">Doctor Name</label>
                                 <input type="text" name="drName" class="form-control" id="drName" autocomplete="false" required>
                             </div>
                             <div class="mb-3 col-lg-6">
@@ -26,7 +37,7 @@
                                 <input type="email" name="email" class="form-control" id="email" autocomplete="false" placeholder="abc@email.com" required>
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="phone" class="form-label">phone</label>
+                                <label for="phone" class="form-label">Phone</label>
                                 <input type="phone" name="phone" class="form-control" id="phone" autocomplete="false" required>
                             </div>
 
@@ -52,12 +63,23 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
-
+                <div> <br></div>
+                <div><br></div>
+                <div><br></div>
             </div>
-        </div>
+       
     </section>
 
-    </body>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+</body>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="/static/preloader.js"></script>
-    </html>
+</html>
+
+
+
+
+
+
+
+

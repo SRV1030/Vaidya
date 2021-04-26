@@ -18,7 +18,7 @@ body {
 .lottie-1 {
     position: relative;
     height: auto;
-    width: 50vh;
+    width: 40vh;
     /* /margin-left:10vw; */
 }
 
@@ -60,7 +60,7 @@ body {
 
 .header {
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 50px;
     margin-bottom: 2vh;
     padding-bottom: 0;
@@ -69,16 +69,17 @@ body {
     /* color: #fff; */
     font-family: verdana;
     /* font-weight: 300; */
-    color: #f1ebe5;
+    color: white;
     z-index: +10;
 }
 
 p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 20px;
     letter-spacing: 0.5px;
     margin-top: 0px;
+    margin-bottom: 0;
 }
 
 @media(max-width:420px) {
@@ -130,6 +131,7 @@ button.ghost {
     background-color: transparent;
     border-color: #fff;
     color: #fff;
+    margin-top:0;
 }
 
 form {
