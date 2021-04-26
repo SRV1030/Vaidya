@@ -19,6 +19,7 @@ html {
     background-color: #05e8ba;
     /* z-index:10000; */
     background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+    cursor: pointer;
 }
 
 
@@ -53,6 +54,7 @@ html {
     position: fixed;
     margin-left: 1vw;
     margin-top: 60vh;
+    z-index: 0;
 }
 
 .c2 {
@@ -63,6 +65,7 @@ html {
     position: fixed;
     margin-left: 28vw;
     margin-top: 18vh;
+    z-index: 0;
 }
 
 .c3 {
@@ -71,6 +74,7 @@ html {
     position: fixed;
     margin-left: 39vw;
     margin-top: 40vh;
+    z-index: 0;
 }
 
 .c4 {
@@ -79,6 +83,7 @@ html {
     position: fixed;
     margin-left: 45vw;
     margin-top: 59vh;
+    z-index: 0;
 }
 
 .c5 {
@@ -87,6 +92,7 @@ html {
     position: fixed;
     margin-left: 90vw;
     margin-top: 50vh;
+    z-index: 0;
 }
 
 
@@ -117,17 +123,19 @@ html {
     top: 2%;
     /* width:100%; */
     overflow: hidden;
-    z-index: +1;
+    z-index: +10;
 }
 
 .header-name a {
     /* background-color: #fff; */
-    font-weight: 300;
+    /* font-weight: 300; */
     float: left;
     font-size: 90px;
-    color: #fff;
-    text-decoration: none;
-    ;
+    /* color: #fff; */
+    font-family: verdana;
+    font-weight: 300;
+    color: #f1ebe5;
+    z-index: +10;
 }
 
 .header-lottie {
@@ -154,6 +162,7 @@ hr {
     justify-content: center;
     margin-left: 4%;
     margin-right: 4%;
+    transition: all 0.5s ease-in-out;
 }
 
 .topnav a {
@@ -173,7 +182,7 @@ hr {
 
 .topnav a:hover {
     font-weight: 300;
-    color: white;
+    color: #087ee1;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
 }
@@ -1295,35 +1304,29 @@ div .grid-item :hover img {
     cursor: pointer;
 }
 
-@media  screen and (max-width: 360px) {
-    
-    .doccard{
+@media screen and (max-width: 360px) {
+    .doccard {
         transform: scale(0.5);
     }
-    .card{
-     transform: scale(0.5);
-     }
-     
- }
-
-@media  (min-width:370px) and (max-width: 420px) {
-    
-   .doccard{
-       transform: scale(0.7);
-   }
-   .card{
-    transform: scale(0.6);
+    .card {
+        transform: scale(0.5);
     }
-   
+}
+
+@media (min-width:370px) and (max-width: 420px) {
+    .doccard {
+        transform: scale(0.7);
+    }
+    .card {
+        transform: scale(0.6);
+    }
 }
 
 @media (min-width: 420px) and (max-width: 768px) {
-    .doccard{
+    .doccard {
         transform: scale(0.9);
     }
-    .card{
+    .card {
         transform: scale(0.9);
-       
     }
-    
 }

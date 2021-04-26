@@ -251,30 +251,13 @@ app.get("/", (req, res) => {
 app.get("/ambulance", (req, res) => {
     res.render("ambulance")
 })
-let f1 = true;
-app.get("/login", (req, res) => {
-    f1 = !f1
-    res.render("login", {
-        f: f1,
-    });
 
-})
-app.get("/register", (req, res) => {
-
-    const f = false;
-    res.render("register", {
-        f: f,
-    });
-
-})
 app.post('/register', (req, res) => {
     User.register({ username: req.body.username, name: req.body.name, email: req.body.email }, req.body.password, function(err, user) {
         if (err) {
             console.log(err);
-            const f = true;
-            res.render("register", {
-                f: f,
-            });
+            // const f = true;
+            res.render("auth");
         } else {
             passport.authenticate("local")(req, res, () => {
                 res.redirect("/index")
@@ -292,7 +275,7 @@ app.post('/login', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            passport.authenticate("local", { failureRedirect: '/login' })(req, res, () => {
+            passport.authenticate("local", { failureRedirect: '/' })(req, res, () => {
                 res.redirect("/index");
 
             })
