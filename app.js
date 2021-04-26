@@ -71,9 +71,37 @@ const Hospital = mongoose.model('Hospital');
 const dr = mongoose.model('Doctor');
 
 
+app.get("/index", (req, res) => {
+    if (req.isAuthenticated()) {
+        Hospital.find({}, (err, hosp) => {
+            if (err) console.log(err);
+            else {
+                // console.log(hosp);
+                res.render("index");
+            }
+
+        })
+    } else {
+        res.render("auth");
+    }
+
+})
+
+
 app.route("/hospForm")
     .get((req, res) => {
-        res.render("hospForm");
+        if (req.isAuthenticated()) {
+            Hospital.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    res.render("hospForm");
+                }
+
+            })
+        } else {
+            res.render("auth");
+        }
+
     })
 app.post("/hospForm", upload.single('itemImage'), (req, res) => {
 
@@ -93,6 +121,45 @@ app.post("/hospForm", upload.single('itemImage'), (req, res) => {
     // console.log(item);
     item.save();
     res.redirect("/hospital");
+
+
+})
+
+app.route("/drForm")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            Hospital.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    res.render("drForm");
+                }
+
+            })
+        } else {
+            res.render("auth");
+        }
+
+    })
+app.post("/drForm", upload.single('itemImage'), (req, res) => {
+
+    let item = new dr({
+        drName: req.body.drName,
+        drDegree: req.body.drdeg,
+        fieldexpertise: req.body.spec,
+        workAddress: req.body.drAd,
+        email: req.body.email,
+        phone: req.body.phone,
+        workExp: req.body.exp,
+        desc: req.body.desc,
+        img: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            type: 'image/jpg',
+        },
+
+    });
+    // console.log(item);
+    item.save();
+    res.redirect("/dr");
 
 
 })
@@ -144,21 +211,36 @@ app.route("/hospital")
 
             })
         } else {
-            res.redirect("/login");
+            res.redirect("/");
         }
 
     })
 
+app.route("/dr")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            dr.find({}, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    // console.log(hosp);
+                    res.render("dr", {
+                        hosp: hosp,
+                    });
+                }
 
+            })
+        } else {
+            res.redirect("/");
+        }
+
+    })
 app.get("/", (req, res) => {
     if (req.isAuthenticated()) {
         Hospital.find({}, (err, hosp) => {
             if (err) console.log(err);
             else {
                 // console.log(hosp);
-                res.render("hospital", {
-                    hosp: hosp,
-                });
+                res.redirect("/index");
             }
 
         })
@@ -166,33 +248,19 @@ app.get("/", (req, res) => {
         res.render("auth");
     }
 })
-let f1 = true;
-app.get("/login", (req, res) => {
-    f1 = !f1
-    res.render("login", {
-        f: f1,
-    });
-
+app.get("/ambulance", (req, res) => {
+    res.render("ambulance")
 })
-app.get("/register", (req, res) => {
 
-    const f = false;
-    res.render("register", {
-        f: f,
-    });
-
-})
 app.post('/register', (req, res) => {
     User.register({ username: req.body.username, name: req.body.name, email: req.body.email }, req.body.password, function(err, user) {
         if (err) {
             console.log(err);
-            const f = true;
-            res.render("register", {
-                f: f,
-            });
+            // const f = true;
+            res.render("auth");
         } else {
             passport.authenticate("local")(req, res, () => {
-                res.redirect("/hospital")
+                res.redirect("/index")
             })
         }
     })
@@ -207,8 +275,8 @@ app.post('/login', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            passport.authenticate("local", { failureRedirect: '/login' })(req, res, () => {
-                res.redirect("/hospital");
+            passport.authenticate("local", { failureRedirect: '/' })(req, res, () => {
+                res.redirect("/index");
 
             })
         }
