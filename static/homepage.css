@@ -21,6 +21,8 @@ html {
     background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
     cursor: pointer;
 }
+
+
 /* BACKGROUND-DESIGN STARTS */
 
 .bgcircle {
@@ -90,7 +92,7 @@ html {
     position: fixed;
     margin-left: 90vw;
     margin-top: 50vh;
-    z-index: 0;
+    z-index: -0.25;
 }
 
 
@@ -134,9 +136,11 @@ html {
     font-weight: 300;
     color: #f1ebe5;
     z-index: +10;
-    text-decoration: none;;
+    text-decoration: none;
+    ;
 }
-.header-name a:hover{
+
+.header-name a:hover {
     /* cursor:pointer; */
     color: #f1ebe5;
 }
@@ -1147,7 +1151,8 @@ div .grid-item :hover img {
     padding: 10px;
 }
 
-.Home {
+.Home,
+.Home1 {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1156,30 +1161,41 @@ div .grid-item :hover img {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.Home {
+    height: 20vh;
+}
+
+.Home1 {
     min-height: 20vh;
 }
 
-.hosp-lottie{
-    width: 300px;
-    height: 300px;
-    position: relative;
-    left: 40%;
+.hosp-lottie {
+    width: 30vh;
+    height: 30vh;
+    position: absolute;
+    left: 20%;
 }
+
 
 /* End of Hospital Cards */
 
 
 /* Doctor cards */
-.doctor-lottie{
-    width: 600px;
-    height: 600px;
+
+.doctor-lottie {
+    width: 45vh;
+    height: 45vh;
     position: absolute;
 }
-.doctor-lottie2{
-    width: 400px;
-    height: 400px;
+
+.doctor-lottie2 {
+    width: 30vh;
+    height: 30vh;
     position: absolute;
 }
+
 .doccard {
     width: 540px;
     height: 240px;
@@ -1260,7 +1276,7 @@ div .grid-item :hover img {
 }
 
 .ambIcon {
-    position:relative;
+    position: relative;
     left: auto;
 }
 
@@ -1330,14 +1346,14 @@ div .grid-item :hover img {
     .ambContainer {
         transform: scale(0.5);
     }
-    .doctor-lottie{
+    .doctor-lottie {
         position: relative;
         transform: scale(0.5);
     }
-    .doctor-lottie2{
+    .doctor-lottie2 {
         position: relative;
     }
-    .hosp-lottie{
+    .hosp-lottie {
         position: relative;
         left: 20%;
     }
@@ -1353,14 +1369,14 @@ div .grid-item :hover img {
     .ambContainer {
         transform: scale(0.6);
     }
-    .doctor-lottie{
+    .doctor-lottie {
         position: relative;
         transform: scale(0.6);
     }
-    .doctor-lottie2{
+    .doctor-lottie2 {
         position: relative;
     }
-    .hosp-lottie{
+    .hosp-lottie {
         position: relative;
         left: 11%;
     }
@@ -1376,29 +1392,30 @@ div .grid-item :hover img {
     .ambContainer {
         transform: scale(0.9);
     }
-    .doctor-lottie{
+    .doctor-lottie {
         position: relative;
         left: -10%;
     }
-    .doctor-lottie2{
+    .doctor-lottie2 {
         position: relative;
         left: -10%;
     }
-    .hosp-lottie{
+    .hosp-lottie {
         position: relative;
         left: 25%;
     }
 }
-@media (min-width: 768px) and (max-width: 1366px){
-    .doctor-lottie{
+
+@media (min-width: 768px) and (max-width: 1366px) {
+    .doctor-lottie {
         position: relative;
         left: 10%;
     }
-    .doctor-lottie2{
+    .doctor-lottie2 {
         position: relative;
         left: 10%;
     }
-    .hosp-lottie{
+    .hosp-lottie {
         position: relative;
         left: 35%;
     }
