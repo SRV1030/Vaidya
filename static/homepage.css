@@ -134,6 +134,11 @@ html {
     font-weight: 300;
     color: #f1ebe5;
     z-index: +10;
+    text-decoration: none;;
+}
+.header-name a:hover{
+    /* cursor:pointer; */
+    color: #f1ebe5;
 }
 
 .header-lottie {
@@ -180,7 +185,7 @@ hr {
 
 .topnav a:hover {
     font-weight: 300;
-    color: #087ee1;
+    color: #fff;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
 }
