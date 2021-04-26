@@ -582,7 +582,8 @@ backdrop-filter: blur( 4.5px);
   font-size:15px;
   line-height:24px;
   color:#000;
-  position:relative;
+  overflow: hidden;
+  position: relative;
 }
 .row{
     display:flex;
@@ -1380,7 +1381,7 @@ backdrop-filter: blur( 4.5px);
 
 .doccard {
     width: 540px;
-    height: 240px;
+    height: 250px;
     border: none;
     position: relative;
     z-index: 0;
