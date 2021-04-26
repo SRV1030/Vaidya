@@ -1,4 +1,17 @@
 <%- include('partials/header') %>
+    <div class="topnav" id="myTopnav">
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/hospital">Hospitals</a>
+        <a class="nav-item" href="/dr">Doctors</a>
+        <a class="nav-item active" href="/ambulance">Ambulance</a>
+        <a class="nav-item" class="logo" href="/drform"><img src="/static/icons/doctor.png" /></a>
+        <a class="nav-item" class="logo" href="/hospform"><img src="/static/icons/hospital.png" /></a>
+        <a href="/logout" class="button-logout">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars" style="font-size:150%"></i>
+        </a>
+
+    </div>
 
     <div onclick="topFunction()" id="myBtn" class="go-top">
         <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_LDS3JQ.json" background="transparent" speed="1" style="width: 50px; height: 50px" loop autoplay></lottie-player>
@@ -143,7 +156,8 @@
 
 
     </div>
-
+    <script src="/static/homepage.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
