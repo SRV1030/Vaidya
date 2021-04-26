@@ -1173,12 +1173,12 @@ div .grid-item :hover img {
 .doctor-lottie{
     width: 600px;
     height: 600px;
-    position: absolute;
+    position: fixed;
 }
 .doctor-lottie2{
     width: 400px;
     height: 400px;
-    position: absolute;
+    position: fixed;
 }
 .doccard {
     width: 540px;
