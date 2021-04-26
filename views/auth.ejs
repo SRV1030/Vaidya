@@ -1,16 +1,49 @@
 <%- include('partials/headerauth') %>
 
 
-    <div class="jumbotron centered">
-        <div class="container">
-            <i class="fas fa-key fa-6x"></i>
-            <h1 class="display-3">Home</h1>
-            <p class="lead">pick one</p>
-            <hr>
-            <a class="btn btn-light btn-lg" href="/register" role="button">SignUp</a>
-            <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
+    <body>
+        <h1 class="header">vaidya</h1>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="/register" method="POST">
+                    <h2>Create Account</h2>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="username" placeholder="User-Handle">
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="/login" method="POST">
+                    <div class="sign-in">Sign in</div>
+                    <input type="text" name="username" placeholder="User-Handle">
+                    <input type="password" name="password" placeholder="Password" />
+                    <!-- <a href="#" class="forgot-password">Forgot your password?</a> -->
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
 
+                        <div class="morphbg">
+                            <h2>Welcome Back!</h2>
+                            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_q5pk6p1k.json" background="transparent" speed="1" class="lottie-2" loop autoplay></lottie-player>
+                            <p>Please login to continue.</p>
+                            <button class="ghost" id="signIn">Sign In</button>
+                        </div>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_ioxlu1zt.json" background="transparent" speed="1" class="lottie-1" loop autoplay></lottie-player>
+                        <p>Enter your personal details and sign up with us today!</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <script src="/static/auth.js"></script>
+    </body>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <%- include('partials/footer') %>
+    </html>

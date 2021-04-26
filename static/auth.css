@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #05e8ba;
+    background-image: linear-gradient(315deg, #087ee1 0%, #05e8ba 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: -20px 0 50px;
+}
+
+.lottie-1 {
+    position: relative;
+    height: auto;
+    width: 50vh;
+    /* /margin-left:10vw; */
+}
+
+@media(max-width:1024px) {
+    .lottie-1 {
+        height: 20vh;
+    }
+    .lottie-2 {
+        position: relative;
+        height: 10vh;
+        width: auto;
+    }
+    .forgot-password {
+        font-size: 10px;
+        margin-top: 0;
+    }
+    p {
+        font-size: 8px;
+    }
+    h2 {
+        margin-top: 0;
+    }
+}
+
+.lottie-2 {
+    /* position:relative; */
+    height: 30vh;
+    width: 30vw;
+    margin-top: 0;
+    /* /margin-left:10vw; */
+}
+
+.sign-in {
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 5vh;
+    font-size: 30px;
+}
+
+.header {
+    text-align: center;
+    font-weight: 500;
+    font-size: 50px;
+    margin-bottom: 2vh;
+    padding-bottom: 0;
+    /* color:white; */
+    font-size: 90px;
+    /* color: #fff; */
+    font-family: verdana;
+    /* font-weight: 300; */
+    color: #f1ebe5;
+    z-index: +10;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin-top: 0px;
+}
+
+@media(max-width:420px) {
+    p {
+        font-size: 10px;
+    }
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #087ee1;
+    background-color: #087ee1;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.3s ease-in;
+}
+
+@media(max-width:420px) {
+    button {
+        padding: 6px 20px;
+        width: 30vw;
+    }
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+input {
+    background-color: #eee;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+@media(max-width:420px) {
+    input {
+        border-radius: 10px;
+        width: 40vw;
+        padding: 6px 9px;
+    }
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 90%;
+    min-height: 440px;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+@media(max-width:1025px) {
+    h2 {
+        margin-bottom: 0vh;
+        margin-top: 2px;
+    }
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}

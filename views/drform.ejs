@@ -3,44 +3,49 @@
     </div>
 
 
-
     <section id="storeOwner">
         <div class="container row">
-            <h1 class="heading col-lg-3">Hospital Details</h1>
+            <h1 class="heading col-lg-3">Doctor Details</h1>
             <div class="container col-lg-9">
-                <form action="/hospForm" method="post" enctype="multipart/form-data">
+                <form action="/drForm" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="row">
                             <div class="mb-3 col-lg-6">
-                                <label for="hospName" class="form-label">Hospital Name</label>
-                                <input type="text" name="hospName" class="form-control" id="hospName" autocomplete="false" required>
+                                <label for="drpName" class="form-label">Doctor Name</label>
+                                <input type="text" name="drName" class="form-control" id="drName" autocomplete="false" required>
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="hospAd" class="form-label">Hospital Address</label>
-                                <input type="text" name="hospAd" class="form-control" id="hospAd" autocomplete="false" required>
+                                <label for="drdeg" class="form-label">Highest Education Qualification</label>
+                                <input type="text" name="drdeg" class="form-control" id="drdeg" autocomplete="false" required>
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="workForce" class="form-label">WorkForce</label>
-                                <input type="text" name="workForce" class="form-control" id="workForce" autocomplete="false" placeholder="Total number of employees" required>
+                                <label for="drAd" class="form-label">Work Address</label>
+                                <input type="text" name="drAd" class="form-control" id="drAd" autocomplete="false" required>
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="bed" class="form-label">Number of beds:</label>
-                                <input type="text" name="bed" class="form-control" id="bed" autocomplete="false" placeholder="Total number of employees" required>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" id="email" autocomplete="false" placeholder="abc@email.com" required>
+                            </div>
+                            <div class="mb-3 col-lg-6">
+                                <label for="phone" class="form-label">phone</label>
+                                <input type="phone" name="phone" class="form-control" id="phone" autocomplete="false" required>
                             </div>
 
                             <div class="mb-3 col-lg-6">
-                                <!-- TO DO: countdown function to be added-->
                                 <label for="spec" class="form-label">Specialization</label>
                                 <input type="text" name="spec" class="form-control" id="spec" placeholder="field of expertise" required>
                             </div>
                         </div>
                         <div class="mb-3 col-lg-6">
-                            <label for="desc" class="form-label">Facilities</label>
+                            <label for="exp" class="form-label">Experience</label>
+                            <input type="text" name="exp" class="form-control" id="exp" autocomplete="false" placeholder="in years/months " required>
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="desc" class="form-label">Description</label>
                             <input type="text" name="desc" class="form-control" id="desc" autocomplete="false" required>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-lg-12">
-                                <!-- TO DO: make so that any number of images can be added and give each of them a number or Id-->
                                 <label for="itemImage" class="form-label">Add Image</label>
                                 <input type="file" name="itemImage" class="form-control filepond" id="itemImage">
                             </div>
