@@ -5,9 +5,9 @@
         <a class="nav-item" href="/hospital">Hospitals</a>
         <a class="nav-item" href="/dr">Doctors</a>
         <a class="nav-item" href="/ambulance">Ambulance</a>
+        <a class="nav-item" href="/covidTracker">Covid Updates</a>
         <a class="nav-item" class="logo" href="/drform"><img src="/static/icons/doctor.png" /></a>
         <a class="nav-item" class="logo" href="/hospform"><img src="/static/icons/hospital.png" /></a>
-        <a class="nav-item active" class="logo" href="/covidTracker"><img style="height: 30px; width: 40px;" src="/static/icons/covid-logo.png" /></a>
         <a href="/logout" class="button-logout">Logout</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars" style="font-size:150%"></i>
@@ -60,14 +60,15 @@
           });
 
             if(activeCases[i].textContent >= 10000) {
-              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"});
-            } else if(activeCases[i].textContent < 10000 && activeCases[i].textContent > 1000) {
-              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"});
-            } else {
-              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"});
+              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+            } else if(activeCases[i].textContent < 10000 && activeCases[i].textContent >= 1000) {
+              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
+            } else if(activeCases[i].textContent < 1000) {
+              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
             }
         }
       }
+      // checkpoint
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCiHkHHtZnUiAPKVMpjoI0dyquUe4-uJ8&callback=myMap"></script>
