@@ -50,7 +50,7 @@
             mapProp
           );
       for (let i = 0; i < states.length; i++) {
-          new google.maps.Marker({
+          var marker = new google.maps.Marker({
             position: new google.maps.LatLng(
               latis[i].textContent,
               longs[i].textContent
@@ -58,6 +58,14 @@
             map,
             title: `Confirmed cases: ${confirmedCases[i].textContent} \nRecovered cases: ${recoveredCases[i].textContent} \nActive cases: ${activeCases[i].textContent}`
           });
+
+            if(activeCases[i].textContent >= 10000) {
+              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"});
+            } else if(activeCases[i].textContent < 10000 && activeCases[i].textContent > 1000) {
+              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"});
+            } else {
+              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"});
+            }
         }
       }
     </script>
