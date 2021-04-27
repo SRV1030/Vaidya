@@ -1302,6 +1302,14 @@ div .grid-item :hover img {
     cursor: pointer;
 }
 
+.covid-heading {
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 600;
+    z-index: 999;
+    font-size: 4rem;
+}
+
 @media screen and (max-width: 360px) {
     .doccard {
         transform: scale(0.5);
@@ -1327,4 +1335,11 @@ div .grid-item :hover img {
     .card {
         transform: scale(0.9);
     }
+}
+
+@media (max-width: 700px) {
+    .covid-heading {
+
+    font-size: 2rem;
+}
 }

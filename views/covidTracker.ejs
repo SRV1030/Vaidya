@@ -1,0 +1,48 @@
+
+      <%- include('partials/header') %>
+    <h1 class="covid-heading">Covid Tracker</h1>
+
+    <div class="details" style="display: none">
+      <% obj.forEach(el=> { %>
+      <div class="state"><%= el.provinceState %></div>
+      <div class="longi"><%= el.long %></div>
+      <div class="lati"><%= el.lat %></div>
+      <div class="cases"><%= el.active %></div>
+      <% }); %>
+    </div>
+    <div id="covidMap" style="width: 95vw; height: 90vh; margin: 0 auto; margin-bottom: 2rem; border-radius: 7px;"></div>
+
+    <script>
+      const states = document.getElementsByClassName('state');
+      const longs = document.getElementsByClassName('longi');
+      const latis = document.getElementsByClassName('lati');
+      const activeCases = document.getElementsByClassName('cases');
+      let i = 0;
+      console.log(latis[i].textContent);
+
+
+        function myMap() {
+          var mapProp = {
+            center: new google.maps.LatLng(20.5937, 78.9629),
+            zoom: 5
+          };
+          var map = new google.maps.Map(
+            document.getElementById('covidMap'),
+            mapProp
+          );
+      for (let i = 0; i < states.length; i++) {
+          new google.maps.Marker({
+            position: new google.maps.LatLng(
+              latis[i].textContent,
+              longs[i].textContent
+            ),
+            map,
+            title: `Active cases: ${activeCases[i].textContent}`
+          });
+        }
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCiHkHHtZnUiAPKVMpjoI0dyquUe4-uJ8&callback=myMap"></script>
+
+    <%- include('partials/footer') %>
