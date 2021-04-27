@@ -60,14 +60,15 @@
           });
 
             if(activeCases[i].textContent >= 10000) {
-              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"});
-            } else if(activeCases[i].textContent < 10000 && activeCases[i].textContent > 1000) {
-              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"});
-            } else {
-              marker.setIcon({url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"});
+              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+            } else if(activeCases[i].textContent < 10000 && activeCases[i].textContent >= 1000) {
+              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
+            } else if(activeCases[i].textContent < 1000) {
+              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
             }
         }
       }
+      // checkpoint
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCiHkHHtZnUiAPKVMpjoI0dyquUe4-uJ8&callback=myMap"></script>
