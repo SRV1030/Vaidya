@@ -1528,6 +1528,43 @@ backdrop-filter: blur( 4.5px);
     font-size: 4rem;
 }
 
+
+/* Dashboard */
+.dashboard1{
+    display: flex;
+    float: none;
+}
+.glassmorphism-bg3 {
+    width: 800px;
+    margin: 4% auto;
+    position: relative;
+    border-radius: 20px;
+    padding-bottom: 3%;
+    background: rgba( 255, 255, 255, 0.20);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4.5px);
+    -webkit-backdrop-filter: blur( 4.5px);
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+    overflow-wrap: hidden;
+}
+.dashDetails{
+    color: white;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+.dashImage{
+    border-radius: 5px;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+.dashDetails h3{
+    font-size: 20px;
+}
+.username1{
+    font-weight: bold;
+}
+/* End of dashboard */
+
 @media screen and (max-width: 360px) {
     .doccard {
         transform: scale(0.5);
@@ -1548,6 +1585,9 @@ backdrop-filter: blur( 4.5px);
     .hosp-lottie {
         position: relative;
         left: 20%;
+    }
+    .glassmorphism-bg3 {
+        transform: scale(0.4);
     }
 }
 
@@ -1572,6 +1612,9 @@ backdrop-filter: blur( 4.5px);
         position: relative;
         left: 11%;
     }
+    .glassmorphism-bg3 {
+        transform: scale(0.3);
+    }
 }
 
 @media (min-width: 420px) and (max-width: 768px) {
@@ -1579,6 +1622,9 @@ backdrop-filter: blur( 4.5px);
         transform: scale(0.9);
     }
     .card {
+        transform: scale(0.9);
+    }
+    .glassmorphism-bg3 {
         transform: scale(0.9);
     }
 }
