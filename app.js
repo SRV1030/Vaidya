@@ -9,6 +9,9 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 
+const fetch = require('node-fetch');
+const covidTracker = require('./routes/covidTracker');
+
 app.use(express.json());
 
 
@@ -87,6 +90,15 @@ app.get("/index", (req, res) => {
 
 })
 
+app.route('/covidTracker').get( async (req, res) => {
+    // try {
+        const api_url = 'https://covid19.mathdro.id/api/countries/india/confirmed';
+        const getData = await fetch(api_url);
+        const data = await getData.json();
+            res.render('covidTracker',{
+                obj: data
+        });
+});
 
 app.route("/hospForm")
     .get((req, res) => {
@@ -103,6 +115,7 @@ app.route("/hospForm")
         }
 
     })
+
 app.post("/hospForm", upload.single('itemImage'), (req, res) => {
 
     let item = new Hospital({

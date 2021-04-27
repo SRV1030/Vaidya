@@ -1520,6 +1520,14 @@ backdrop-filter: blur( 4.5px);
     cursor: pointer;
 }
 
+.covid-heading {
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 600;
+    z-index: 999;
+    font-size: 4rem;
+}
+
 @media screen and (max-width: 360px) {
     .doccard {
         transform: scale(0.5);
@@ -1573,21 +1581,12 @@ backdrop-filter: blur( 4.5px);
     .card {
         transform: scale(0.9);
     }
-    .ambContainer {
-        transform: scale(0.9);
-    }
-    .doctor-lottie {
-        position: relative;
-        left: -10%;
-    }
-    .doctor-lottie2 {
-        position: relative;
-        left: -10%;
-    }
-    .hosp-lottie {
-        position: relative;
-        left: 25%;
-    }
+}
+
+@media (max-width: 700px) {
+    .covid-heading {
+    font-size: 2rem;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
