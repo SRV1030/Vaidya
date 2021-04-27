@@ -1,5 +1,20 @@
 
       <%- include('partials/header') %>
+        <div class="topnav" id="myTopnav">
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/hospital">Hospitals</a>
+        <a class="nav-item" href="/dr">Doctors</a>
+        <a class="nav-item" href="/ambulance">Ambulance</a>
+        <a class="nav-item" class="logo" href="/drform"><img src="/static/icons/doctor.png" /></a>
+        <a class="nav-item" class="logo" href="/hospform"><img src="/static/icons/hospital.png" /></a>
+        <a class="nav-item active" class="logo" href="/covidTracker"><img style="height: 30px; width: 40px;" src="/static/icons/covid-logo.png" /></a>
+        <a href="/logout" class="button-logout">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars" style="font-size:150%"></i>
+        </a>
+
+    </div>
+
     <h1 class="covid-heading">Covid Tracker</h1>
 
     <div class="details" style="display: none">
@@ -7,6 +22,8 @@
       <div class="state"><%= el.provinceState %></div>
       <div class="longi"><%= el.long %></div>
       <div class="lati"><%= el.lat %></div>
+      <div class="confirmed-cases"><%= el.confirmed %></div>
+      <div class="recovered-cases"><%= el.recovered %></div>
       <div class="cases"><%= el.active %></div>
       <% }); %>
     </div>
@@ -17,6 +34,8 @@
       const longs = document.getElementsByClassName('longi');
       const latis = document.getElementsByClassName('lati');
       const activeCases = document.getElementsByClassName('cases');
+      const confirmedCases = document.getElementsByClassName('confirmed-cases');
+      const recoveredCases = document.getElementsByClassName('recovered-cases');
       let i = 0;
       console.log(latis[i].textContent);
 
@@ -37,7 +56,7 @@
               longs[i].textContent
             ),
             map,
-            title: `Active cases: ${activeCases[i].textContent}`
+            title: `Confirmed cases: ${confirmedCases[i].textContent} \nRecovered cases: ${recoveredCases[i].textContent} \nActive cases: ${activeCases[i].textContent}`
           });
         }
       }
