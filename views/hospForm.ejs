@@ -17,62 +17,59 @@
     </div>
 
     <section id="storeOwner">
-        <div class="container row">
-            <h1 class="heading col-lg-3">Hospital Details</h1>
-            <div class="container col-lg-9">
-                <form action="/hospForm" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="mb-3 col-lg-6">
-                                <label for="hospName" class="form-label">Hospital Name</label>
-                                <input type="text" name="hospName" class="form-control" id="hospName" autocomplete="false" required>
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="hospAd" class="form-label">Hospital Address</label>
-                                <input type="text" name="hospAd" class="form-control" id="hospAd" autocomplete="false" required>
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="workForce" class="form-label">WorkForce</label>
-                                <input type="text" name="workForce" class="form-control" id="workForce" autocomplete="false" placeholder="Total number of employees" required>
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="bed" class="form-label">Number of beds:</label>
-                                <input type="text" name="bed" class="form-control" id="bed" autocomplete="false" placeholder="Total number of employees" required>
-                            </div>
-
-                            <div class="mb-3 col-lg-6">
-                                <!-- TO DO: countdown function to be added-->
-                                <label for="spec" class="form-label">Specialization</label>
-                                <input type="text" name="spec" class="form-control" id="spec" placeholder="field of expertise" required>
-                            </div>
+        <h1 class="heading ">Hospital Details</h1>
+        <br><br>
+        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_iXKIMU.json" background="transparent" speed="1" class="lottie-2" loop autoplay></lottie-player>
+        <div class="container ">
+            <form action="/hospForm" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="mb-3 col-lg-6">
+                            <label for="hospName" class="form-label">Hospital Name</label>
+                            <input type="text" name="hospName" class="form-control" id="hospName" autocomplete="false" required>
                         </div>
                         <div class="mb-3 col-lg-6">
-                            <label for="desc" class="form-label">Facilities</label>
-                            <input type="text" name="desc" class="form-control" id="desc" autocomplete="false" required>
+                            <label for="hospAd" class="form-label">Hospital Address</label>
+                            <input type="text" name="hospAd" class="form-control" id="hospAd" autocomplete="false" required>
                         </div>
-                        <div class="row">
-                            <div class="mb-3 col-lg-12">
-                                <!-- TO DO: make so that any number of images can be added and give each of them a number or Id-->
-                                <label for="itemImage" class="form-label">Add Image</label>
-                                <input type="file" name="itemImage" class="form-control filepond" id="itemImage">
-                            </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="workForce" class="form-label">WorkForce</label>
+                            <input type="text" name="workForce" class="form-control" id="workForce" autocomplete="false" placeholder="Total number of employees" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                        <div class="mb-3 col-lg-6">
+                            <label for="bed" class="form-label">Number of beds:</label>
+                            <input type="text" name="bed" class="form-control" id="bed" autocomplete="false" placeholder="Total number of employees" required>
+                        </div>
 
-            </div>
+                        <div class="mb-3 col-lg-6">
+                            <!-- TO DO: countdown function to be added-->
+                            <label for="spec" class="form-label">Specialization</label>
+                            <input type="text" name="spec" class="form-control" id="spec" placeholder="field of expertise" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label for="desc" class="form-label">Facilities</label>
+                        <input type="text" name="desc" class="form-control" id="desc" autocomplete="false" required>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <!-- TO DO: make so that any number of images can be added and give each of them a number or Id-->
+                            <label for="itemImage" class="form-label">Add Image</label>
+                            <input type="file" name="itemImage" class="form-control filepond" id="itemImage">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
+        </div>
         </div>
     </section>
     <div>
-       <br><br> 
+        <br><br>
     </div>
-
-    <%- include ("partials/footer") %>
-
-    </body>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="/static/preloader.js"></script>
     <script src="/static/homepage.js"></script>
 
-    </html>
+    <%- include ("partials/footer") %>
