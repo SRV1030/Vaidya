@@ -1,11 +1,11 @@
 //Carousel
-var counter=1;
-setInterval(function(){
-  document.getElementById('radio' + counter).checked=true;
-  counter++;
-  if(counter>3){
-    counter=1;
-  }
+var counter = 1;
+setInterval(function() {
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if (counter > 3) {
+        counter = 1;
+    }
 }, 5000);
 
 
@@ -13,8 +13,8 @@ setInterval(function(){
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
-      x.className += " responsive";
+        x.className += " responsive";
     } else {
-      x.className = "topnav";
+        x.className = "topnav";
     }
-  }
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800');
+.form-label {
+    position: relative;
+    z-index: 999;
+    font-style: "Montserrat";
+    font-weight: 600;
+}
+
+.form-control {
+    position: relative;
+    border-radius: 20px;
+    background-color: #f3f3f3;
+}
+
+.btn-primary {
+    margin-top: 5%;
+}
+
+.heading {
+    position: relative;
+    font-weight: 500;
+    color: white;
+    margin-left: 5vw;
+    ;
+}
+
+.container {
+    align-self: left;
+}
+
+.form-group {
+    max-width: 70vw;
+    margin: 0% 10%;
+    margin-left: 2%;
+    background: rgba( 255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4.0px);
+    -webkit-backdrop-filter: blur( 4.0px);
+    padding: 5% 6%;
+    border-radius: 30px;
+}
+
+.lottie-1,
+.lottie-2 {
+    /* background-color: white; */
+    border-radius: 50%;
+    position: fixed;
+    margin-left: 75vw;
+    margin-top: 0vh;
+    width: 200px;
+    height: 200px;
+}
+
+.lottie-2 {
+    background-color: white;
+}
