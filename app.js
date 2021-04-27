@@ -90,14 +90,14 @@ app.get("/index", (req, res) => {
 
 })
 
-app.route('/covidTracker').get( async (req, res) => {
+app.route('/covidTracker').get(async(req, res) => {
     // try {
-        const api_url = 'https://covid19.mathdro.id/api/countries/india/confirmed';
-        const getData = await fetch(api_url);
-        const data = await getData.json();
-            res.render('covidTracker',{
-                obj: data
-        });
+    const api_url = 'https://covid19.mathdro.id/api/countries/india/confirmed';
+    const getData = await fetch(api_url);
+    const data = await getData.json();
+    res.render('covidTracker', {
+        obj: data
+    });
 });
 
 app.route("/hospForm")
@@ -125,14 +125,16 @@ app.post("/hospForm", upload.single('itemImage'), (req, res) => {
         workForce: req.body.workForce,
         specialization: req.body.spec,
         facilities: req.body.desc,
+        username: req.user.username,
         imgH: {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             type: 'image/jpg',
         },
 
     });
-    // console.log(item);
+
     item.save();
+    console.log("saved");
     res.redirect("/hospital");
 
 
@@ -164,6 +166,7 @@ app.post("/drForm", upload.single('itemImage'), (req, res) => {
         phone: req.body.phone,
         workExp: req.body.exp,
         desc: req.body.desc,
+        username: req.user.username,
         img: {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             type: 'image/jpg',
@@ -218,6 +221,25 @@ app.route("/hospital")
                 else {
                     // console.log(hosp);
                     res.render("hospital", {
+                        hosp: hosp,
+                    });
+                }
+
+            })
+        } else {
+            res.redirect("/");
+        }
+
+    })
+
+app.route("/profile")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            Hospital.find({ username: req.user.username }, (err, hosp) => {
+                if (err) console.log(err);
+                else {
+                    // console.log(hosp);
+                    res.render("profile", {
                         hosp: hosp,
                     });
                 }

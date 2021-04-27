@@ -8,6 +8,7 @@ const hospitalSchema = new Schema({
     workForce: String,
     specialization: String,
     facilities: String,
+    username: String,
     imgH: {
         data: Buffer,
         type: String,

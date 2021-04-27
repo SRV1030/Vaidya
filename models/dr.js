@@ -13,6 +13,7 @@ const drProfileSchema = new Schema({
     email: String,
     phone: String,
     workExp: String,
+    username: String,
     img: {
         data: Buffer,
         type: String,

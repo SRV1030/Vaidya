@@ -1,11 +1,10 @@
-
-      <%- include('partials/header') %>
-        <div class="topnav" id="myTopnav">
+<%- include('partials/header') %>
+    <div class="topnav" id="myTopnav">
         <a class="nav-item" href="/">Home</a>
         <a class="nav-item" href="/hospital">Hospitals</a>
         <a class="nav-item" href="/dr">Doctors</a>
         <a class="nav-item" href="/ambulance">Ambulance</a>
-        <a class="nav-item" href="/covidTracker">Covid Updates</a>
+        <a class="nav-item active" href="/covidTracker">Covid Updates</a>
         <a class="nav-item" class="logo" href="/drform"><img src="/static/icons/doctor.png" /></a>
         <a class="nav-item" class="logo" href="/hospform"><img src="/static/icons/hospital.png" /></a>
         <a href="/logout" class="button-logout">Logout</a>
@@ -18,57 +17,69 @@
     <h1 class="covid-heading">Covid Tracker</h1>
 
     <div class="details" style="display: none">
-      <% obj.forEach(el=> { %>
-      <div class="state"><%= el.provinceState %></div>
-      <div class="longi"><%= el.long %></div>
-      <div class="lati"><%= el.lat %></div>
-      <div class="confirmed-cases"><%= el.confirmed %></div>
-      <div class="recovered-cases"><%= el.recovered %></div>
-      <div class="cases"><%= el.active %></div>
-      <% }); %>
+        <% obj.forEach(el=> { %>
+            <div class="state">
+                <%= el.provinceState %>
+            </div>
+            <div class="longi">
+                <%= el.long %>
+            </div>
+            <div class="lati">
+                <%= el.lat %>
+            </div>
+            <div class="confirmed-cases">
+                <%= el.confirmed %>
+            </div>
+            <div class="recovered-cases">
+                <%= el.recovered %>
+            </div>
+            <div class="cases">
+                <%= el.active %>
+            </div>
+            <% }); %>
     </div>
     <div id="covidMap" style="width: 95vw; height: 90vh; margin: 0 auto; margin-bottom: 2rem; border-radius: 7px;"></div>
 
     <script>
-      const states = document.getElementsByClassName('state');
-      const longs = document.getElementsByClassName('longi');
-      const latis = document.getElementsByClassName('lati');
-      const activeCases = document.getElementsByClassName('cases');
-      const confirmedCases = document.getElementsByClassName('confirmed-cases');
-      const recoveredCases = document.getElementsByClassName('recovered-cases');
-      let i = 0;
-      console.log(latis[i].textContent);
+        const states = document.getElementsByClassName('state');
+        const longs = document.getElementsByClassName('longi');
+        const latis = document.getElementsByClassName('lati');
+        const activeCases = document.getElementsByClassName('cases');
+        const confirmedCases = document.getElementsByClassName('confirmed-cases');
+        const recoveredCases = document.getElementsByClassName('recovered-cases');
+        let i = 0;
+        console.log(latis[i].textContent);
 
 
         function myMap() {
-          var mapProp = {
-            center: new google.maps.LatLng(20.5937, 78.9629),
-            zoom: 5
-          };
-          var map = new google.maps.Map(
-            document.getElementById('covidMap'),
-            mapProp
-          );
-      for (let i = 0; i < states.length; i++) {
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(
-              latis[i].textContent,
-              longs[i].textContent
-            ),
-            map,
-            title: `Confirmed cases: ${confirmedCases[i].textContent} \nRecovered cases: ${recoveredCases[i].textContent} \nActive cases: ${activeCases[i].textContent}`
-          });
+            var mapProp = {
+                center: new google.maps.LatLng(20.5937, 78.9629),
+                zoom: 5
+            };
+            var map = new google.maps.Map(
+                document.getElementById('covidMap'),
+                mapProp
+            );
+            for (let i = 0; i < states.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(
+                        latis[i].textContent,
+                        longs[i].textContent
+                    ),
+                    map,
+                    title: `Confirmed cases: ${confirmedCases[i].textContent} \nRecovered cases: ${recoveredCases[i].textContent} \nActive cases: ${activeCases[i].textContent}`
+                });
 
-            if(activeCases[i].textContent >= 10000) {
-              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
-            } else if(activeCases[i].textContent < 10000 && activeCases[i].textContent >= 1000) {
-              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
-            } else if(activeCases[i].textContent < 1000) {
-              marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+                if (activeCases[i].textContent >= 10000) {
+                    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+                } else if (activeCases[i].textContent < 10000 && activeCases[i].textContent >= 1000) {
+                    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
+                } else if (activeCases[i].textContent < 1000) {
+                    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+                }
             }
         }
-      }
-      // checkpoint
+        // checkpoint
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCiHkHHtZnUiAPKVMpjoI0dyquUe4-uJ8&callback=myMap"></script>
