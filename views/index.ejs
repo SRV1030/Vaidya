@@ -3,10 +3,11 @@
         <a class="nav-item active" href="/">Home</a>
         <a class="nav-item" href="/hospital">Hospitals</a>
         <a class="nav-item" href="/dr">Doctors</a>
-        <a class="nav-item" href="/ambulance">Ambulance</a>        
+        <a class="nav-item" href="/ambulance">Ambulance</a>
         <a class="nav-item" href="/covidTracker">Covid Updates</a>
         <a class="nav-item" class="logo" href="/drform"><img src="/static/icons/doctor.png" /></a>
         <a class="nav-item" class="logo" href="/hospform"><img src="/static/icons/hospital.png" /></a>
+        <a class="nav-item" href="/profile">Profile</a>
         <a href="/logout" class="button-logout">Logout</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars" style="font-size:150%"></i>
@@ -167,36 +168,36 @@
         <br>
     </div>
     <%- include ("partials/footer") %>
-    
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="/static/homepage.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/static/preloader.js"></script>
-    <script>
-        $(".nav-item").on("click", function(e) {
-            $(".nav-item").removeClass("active");
-            $(this).addClass("active");
-        });
-    </script>
-    <script>
-        mybutton = document.getElementById("myBtn");
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {
-            scrollFunction()
-        };
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <script src="/static/homepage.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="/static/preloader.js"></script>
+        <script>
+            $(".nav-item").on("click", function(e) {
+                $(".nav-item").removeClass("active");
+                $(this).addClass("active");
+            });
+        </script>
+        <script>
+            mybutton = document.getElementById("myBtn");
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
             }
-        }
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        </script>

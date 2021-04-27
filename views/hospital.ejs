@@ -7,6 +7,7 @@
         <a class="nav-item" href="/covidTracker">Covid Updates</a>
         <a class="nav-item" class="logo" href="/drform"><img src="/static/icons/doctor.png" /></a>
         <a class="nav-item" class="logo" href="/hospform"><img src="/static/icons/hospital.png" /></a>
+        <a class="nav-item" href="/profile">Profile</a>
         <a href="/logout" class="button-logout">Logout</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars" style="font-size:150%"></i>
@@ -20,6 +21,9 @@
 
     <lottie-player class="hosp-lottie" src="https://assets2.lottiefiles.com/packages/lf20_mR5H7A.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
     <div class="Home1">
+
+        <!-- Hospital Cards -->
+
         <% hosp.forEach(function(image) { %>
             <div class="center">
 
